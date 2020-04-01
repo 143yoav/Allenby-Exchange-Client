@@ -1,0 +1,44 @@
+@import '../../style/consts.scss';
+
+.Header__Wrapper {
+  width: 100vw;
+  height: 7vh;
+  position: sticky;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  display: grid;
+  grid-template-columns: 60% 10% 15% 15%;
+  @include themify($themes) {
+    background: themed('headerBG');
+  }
+}
+
+.Header__Title {
+  grid-column: 1;
+  margin-left: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  display: flex;
+  align-self: center;
+  text-shadow: 1px 1px 1px black;
+}
+
+.Header__Unit {
+  grid-column: 2;
+  display: flex;
+  justify-self: center;
+  align-items: center;
+}
+
+.Header__Theme {
+  grid-column: 3;
+  display: flex;
+  justify-self: center;
+  align-items: center;
+}
+
+.Header__Navigation {
+  grid-column: 4;
+  display: flex;
+  justify-content: space-evenly;
+}

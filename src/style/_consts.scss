@@ -1,0 +1,62 @@
+//fonts
+$fontFamily: 'Assistant';
+
+//Body
+$bodyBG-light: white;
+$bodyBG-dark: #4a4e4e;
+
+//Colors
+
+$lightMainColor: #f56531;
+
+/*
+ * Implementation of themes
+ */
+
+$themes: (
+  light: (
+    headerBG: $lightMainColor,
+    borderColor: black,
+    toggleTrackColor: black,
+    textInputBorderColor: $lightMainColor,
+    dayWeatherBorderColor: $lightMainColor,
+    dayWeatherTextColor: black,
+    spinnerColor: $lightMainColor,
+    favoriteBorder: $lightMainColor,
+    favoriteTextColor: black
+  ),
+  dark: (
+    headerBG: #24292e,
+    borderColor: #fffcfc,
+    toggleTrackColor: white,
+    textInputBorderColor: white,
+    dayWeatherBorderColor: white,
+    dayWeatherTextColor: white,
+    spinnerColor: white,
+    favoriteBorder: white,
+    favoriteTextColor: white
+  )
+);
+
+@mixin themify($themes) {
+  @each $theme, $map in $themes {
+    .theme-#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge(
+          $theme-map,
+          (
+            $key: $value
+          )
+        ) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}
