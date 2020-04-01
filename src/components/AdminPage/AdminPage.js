@@ -11,6 +11,7 @@ const AdminPage = () => {
   const onKeyDown = useCallback(event => {
     if (event.key == 'Enter') {
       setText('');
+      setResult('');
       sendCmd(text).then(res => setResult(`${res}`));
     }
   });

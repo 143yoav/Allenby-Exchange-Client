@@ -11,7 +11,7 @@ const modelSchema = object({
   amount: number().required('Please enter an amount')
 });
 
-export default ({ onClick }) => {
+export default ({ onSubmit }) => {
   const [approved, setApproved] = useState(false);
 
   return (
@@ -19,6 +19,7 @@ export default ({ onClick }) => {
       schema={modelSchema}
       defaultValue={modelSchema.default()}
       className="Form__Wrapper"
+      onSubmit={onSubmit}
     >
       <div>
         <label>From Currency</label>
@@ -33,7 +34,7 @@ export default ({ onClick }) => {
       </div>
       <ReCAPTCHA sitekey={googleApiKey} onChange={() => setApproved(true)} />
 
-      <Form.Submit type="submit" onClick={onClick} disabled={!approved}>
+      <Form.Submit type="submit" disabled={!approved}>
         Submit
       </Form.Submit>
     </Form>
