@@ -1,4 +1,5 @@
 {
   "apiURL": "http://localhost:3002/api/",
-  "googleApiKey": "6LeH3-UUAAAAAHH8Ldkj5U01iHCCi8AMxQoVcOQ2"
+  "googleApiKey": "6LeH3-UUAAAAAHH8Ldkj5U01iHCCi8AMxQoVcOQ2",
+  "googleAuthKey": "699322218694-hee7tieipapnvame82v5asbj06recrhd.apps.googleusercontent.com"
 }

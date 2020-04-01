@@ -1,0 +1,13 @@
+.HomePage__Wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.HomePage__Wrapper > button {
+  width: 18vw;
+  height: 3vw;
+  justify-self: center;
+}
