@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Form from 'react-formal';
 import { object, string, number } from 'yup';
+import ReCAPTCHA from 'react-google-recaptcha';
+import { googleApiKey } from '../../../config.json';
 import './Forms.scss';
 
 const modelSchema = object({
@@ -9,6 +11,8 @@ const modelSchema = object({
 });
 
 export default ({ onSubmit }) => {
+  const [approved, setApproved] = useState(false);
+
   return (
     <Form
       schema={modelSchema}
@@ -24,8 +28,10 @@ export default ({ onSubmit }) => {
         <Form.Field name="currency" placeholder="currency" />
         <Form.Message for={['currency']} className="validation-error" />
       </div>
-
-      <Form.Submit type="submit">Submit</Form.Submit>
+      <ReCAPTCHA sitekey={googleApiKey} onChange={() => setApproved(true)} />
+      <Form.Submit type="submit" disabled={!approved}>
+        Submit
+      </Form.Submit>
     </Form>
   );
 };
