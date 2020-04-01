@@ -4,10 +4,7 @@ import config from '../config.json';
 
 export const sendCmd = async cmd => {
   try {
-    const result = await Get(`${config.apiURL}cmd`, {
-      cmd
-    });
-
+    const result = await Get(`${config.apiURL}cmd`, { cmd });
     return result.data;
   } catch (error) {
     toast.error('Error sending cmd');

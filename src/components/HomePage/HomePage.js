@@ -23,7 +23,6 @@ export default ({ history }) => {
       <GoogleLogin
         clientId={googleAuthKey}
         buttonText="Login to Allenby Exchange"
-        redirectUri="/users"
         onSuccess={success}
         onFailure={() => {
           toast.error('Could not login');
