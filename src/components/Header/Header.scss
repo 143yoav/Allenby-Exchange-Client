@@ -6,7 +6,7 @@
   position: sticky;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   display: grid;
-  grid-template-columns: 60% 10% 15% 15%;
+  grid-template-columns: 75% 10% 15%;
   @include themify($themes) {
     background: themed('headerBG');
   }
@@ -23,22 +23,15 @@
   text-shadow: 1px 1px 1px black;
 }
 
-.Header__Unit {
+.Header__Theme {
   grid-column: 2;
   display: flex;
   justify-self: center;
   align-items: center;
 }
 
-.Header__Theme {
-  grid-column: 3;
-  display: flex;
-  justify-self: center;
-  align-items: center;
-}
-
 .Header__Navigation {
-  grid-column: 4;
+  grid-column: 3;
   display: flex;
   justify-content: space-evenly;
 }

@@ -18,22 +18,12 @@ $themes: (
     headerBG: $lightMainColor,
     borderColor: black,
     toggleTrackColor: black,
-    textInputBorderColor: $lightMainColor,
-    dayWeatherBorderColor: $lightMainColor,
-    dayWeatherTextColor: black,
-    spinnerColor: $lightMainColor,
-    favoriteBorder: $lightMainColor,
     favoriteTextColor: black
   ),
   dark: (
     headerBG: #24292e,
     borderColor: #fffcfc,
     toggleTrackColor: white,
-    textInputBorderColor: white,
-    dayWeatherBorderColor: white,
-    dayWeatherTextColor: white,
-    spinnerColor: white,
-    favoriteBorder: white,
     favoriteTextColor: white
   )
 );

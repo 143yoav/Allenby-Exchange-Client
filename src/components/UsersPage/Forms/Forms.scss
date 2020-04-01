@@ -1,0 +1,40 @@
+.Form__Wrapper {
+  height: max-content;
+  width: 30vw;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-flow: column;
+  align-self: center;
+  margin-top: 50px;
+}
+
+.Form__Wrapper > div {
+  width: 80%;
+  display: grid;
+  row-gap: 3vh;
+  align-items: center;
+  justify-self: center;
+  justify-items: center;
+  overflow: scroll;
+  margin-bottom: 50px;
+}
+
+.Form__Wrapper > div > label {
+  justify-self: left;
+}
+
+.Form__Wrapper > div > input {
+  width: 80%;
+  font-size: 15px;
+  border-radius: 4px;
+}
+
+.Form__Wrapper > button {
+  margin-bottom: 50px;
+}
+
+.validation-error {
+  color: red;
+  font-size: 10px;
+}

@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import NaviLink from '../common/NaviLink/NaviLink';
 import Toggle from '../common/Toggle/Toggle';
-import { updateUnit } from '../../actions/weather';
 import { updateTheme } from '../../actions/theme';
 import './Header.scss';
 
@@ -12,15 +11,7 @@ const Header = props => {
 
   return (
     <div className="Header__Wrapper">
-      <span className="Header__Title">Herolo Weather Task</span>
-      <div className="Header__Unit">
-        <Toggle
-          checkedLabel="°C"
-          uncheckedLabel="°F"
-          isChecked={props.isMetric}
-          onChange={checked => props.updateUnit(checked)}
-        />
-      </div>
+      <span className="Header__Title">Allenby Exchange</span>
       <div className="Header__Theme">
         <Toggle
           checkedLabel="Light"
@@ -30,11 +21,15 @@ const Header = props => {
         />
       </div>
       <div className="Header__Navigation">
-        <NaviLink to={'/'} value="Home" isSelected={location.pathname == '/'} />
         <NaviLink
-          to={'/favorites'}
-          value="Favorites"
-          isSelected={location.pathname == '/favorites'}
+          to={'/users'}
+          value="Users"
+          isSelected={location.pathname == '/users'}
+        />
+        <NaviLink
+          to={'/admin'}
+          value="Admin"
+          isSelected={location.pathname == '/admin'}
         />
       </div>
     </div>
@@ -42,12 +37,10 @@ const Header = props => {
 };
 
 const mapStateToProps = state => ({
-  isMetric: state.weather.isMetric,
   isLight: state.theme == 'light'
 });
 
 const mapDispatchToProps = dispatch => ({
-  updateUnit: isMetric => dispatch(updateUnit(isMetric)),
   updateTheme: theme => dispatch(updateTheme(theme))
 });
 
