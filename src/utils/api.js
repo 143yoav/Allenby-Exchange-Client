@@ -1,5 +1,4 @@
 import axios from 'axios';
-import config from '../config.json';
 
 export const Get = async (url, params = {}) => {
   try {
@@ -9,8 +8,7 @@ export const Get = async (url, params = {}) => {
         'Content-Type': 'application/json',
         Accept: 'application/json',
         'Access-Control-Allow-Origin': '*',
-        token:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOjJ9.-WjYzDxC5HNWggeCsorZC1RGdRqgWL23eiZ-wq5Mz-o' //sessionStorage.getItem('token')
+        token: sessionStorage.getItem('token')
       }
     });
   } catch (error) {
@@ -25,8 +23,7 @@ export const Post = async (url, data = {}) => {
         'Content-Type': 'application/json',
         Accept: 'application/json',
         'Access-Control-Allow-Origin': '*',
-        token:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOjJ9.-WjYzDxC5HNWggeCsorZC1RGdRqgWL23eiZ-wq5Mz-o' //sessionStorage.getItem('token')
+        token: sessionStorage.getItem('token')
       }
     });
   } catch (error) {

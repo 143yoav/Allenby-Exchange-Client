@@ -31,3 +31,12 @@ export const currencyLoan = async data => {
     toast.error('Error preforming loan');
   }
 };
+
+export const verifyToken = async token => {
+  try {
+    const result = await Get(`${config.apiURL}auth`, { access_token: token });
+    return result.data;
+  } catch (error) {
+    toast.error('Error sign in');
+  }
+};

@@ -2,13 +2,20 @@ import React from 'react';
 import { GoogleLogin } from 'react-google-login';
 import { toast } from 'react-toastify';
 import { googleAuthKey } from '../../config.json';
+import { verifyToken } from '../../actions/api';
 import './HomePage.scss';
 
 export default ({ history }) => {
   const success = data => {
-    toast.success(`Hello ${data.profileObj.name}`);
-    sessionStorage.setItem('auth', 'true');
-    history.push('/users');
+    verifyToken(data.accessToken).then(res => {
+      if (res) {
+        toast.success(`Hello ${data.profileObj.name}`);
+        sessionStorage.setItem('token', res);
+        history.push('/users');
+      } else {
+        sessionStorage.setItem('token', '');
+      }
+    });
   };
 
   return (
