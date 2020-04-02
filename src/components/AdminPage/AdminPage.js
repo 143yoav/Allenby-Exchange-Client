@@ -5,12 +5,12 @@ import { sendCmd } from '../../actions/api';
 import './AdminPage.scss';
 
 const AdminPage = () => {
-  const [text, setText] = useState('');
+  const [text, setText] = useState('<action> <params>');
   const [result, setResult] = useState('');
 
   const onKeyDown = useCallback(event => {
     if (event.key == 'Enter') {
-      setText('');
+      setText('"<action> <params>"');
       setResult('');
       sendCmd(text).then(res => setResult(`${res}`));
     }
@@ -20,6 +20,7 @@ const AdminPage = () => {
     <div className="AdminPage__Wrapper">
       <FilledInput
         value={text}
+        onFocus={() => setText('')}
         onKeyDown={onKeyDown}
         onChange={e => {
           setText(e.target.value);
